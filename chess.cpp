@@ -684,11 +684,11 @@ int main() {
         } else {
             cout << "Engine is thinking...\n";
             //for a more challenging game increase depth to 4, 5, or 6(6 will require enormous patience!)
-            // to change the depth replace the '3' with 4,5 or 6
+            // to change the depth replace the next line
 
-            // at a depth of 5, it plays around 1600+ elo points!(beats stockfish level 4 on lichess) 
+            // at a depth of 5, it plays at around 1600 elo points!(beats stockfish level 4 on lichess) 
 
-            current_move = get_best_move(5); // Depth can be increased for a stronger engine, do not go beyond 6(at depth 6, it can take anywhere between a few seconds to 5 mins to generate a move) as it will take a great deal of time for the engine to make the move
+            current_move = get_best_move(5); // Depth can be increased for a stronger engine, do not go beyond 6(at depth 6, it can take anywhere between a few seconds to 6 mins to generate a move) 
             cout << "Engine played: "
                  << char('a' + current_move.from_col) << 8 - current_move.from_row
                  << char('a' + current_move.to_col) << 8 - current_move.to_row;
