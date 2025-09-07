@@ -25,3 +25,4 @@ You can adjust the engine strength by changing the line 691 (Move best_move = ge
 For depth 6, the engine takes anywhere between a few seconds to ~6 minutes
 At a depth of 5, the average move time is ~8s during the middlegame, and it's instantaneous in the endgame!
 
+Good luck for the game!
