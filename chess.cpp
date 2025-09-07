@@ -1,10 +1,11 @@
 #include<bits/stdc++.h>
-#include<windows.h> // For chess piece symbols on Windows
+#include<windows.h> 
 #pragma execution_character_set("utf-8")
 
 using namespace std;
 
 // --- Piece Representations and Values ---
+// im using emojis to make the board much more user friendly, the underlying implementation uses characters like q for black queen and Q for white queen
 
 unordered_map<char, string> piece_emoji = {
     {'k', "♔"}, {'q', "♕"}, {'r', "♖"}, {'b', "♗"}, {'n', "♘"}, {'p', "♙"},
@@ -480,7 +481,7 @@ vector<Move> generate_legal_moves() {
 }
 
 
-// --- AI and Evaluation ---
+// ---  Evaluation ---
 
 int count_material() {
     int total = 0;
@@ -515,7 +516,7 @@ int evaluate_position() {
                 case 'q': positional_score = queen_table[eval_r][eval_c]; break;
                 case 'k': {
                     // Endgame evaluation for king position is different
-                    bool is_endgame = abs(material) < 1500; // Heuristic for endgame
+                    bool is_endgame = abs(material) < 1500; // Heuristic for endgame, king in the center of the board is favorable in the endgame
                     if (is_endgame) {
                         positional_score = king_endgame_table[eval_r][eval_c];
                     } else {
@@ -687,7 +688,6 @@ int main() {
             // to change the depth replace the next line
 
             // at a depth of 5, it plays at around 1600 elo points!(beats stockfish level 4 on lichess) 
-
             current_move = get_best_move(5); // Depth can be increased for a stronger engine, do not go beyond 6(at depth 6, it can take anywhere between a few seconds to 6 mins to generate a move) 
             cout << "Engine played: "
                  << char('a' + current_move.from_col) << 8 - current_move.from_row
